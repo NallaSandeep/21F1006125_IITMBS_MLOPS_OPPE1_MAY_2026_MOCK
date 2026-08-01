@@ -1,5 +1,0 @@
-[core]
-    remote = mock
-    autostage = true
-['remote "mock"']
-    url = gs://mlops_course_oppe1_mock
