@@ -1,0 +1,6 @@
+stages:
+  train:
+    cmd: python graded_assignment.py
+    deps:
+    - data/iris.csv
+    - graded_assignment.py
