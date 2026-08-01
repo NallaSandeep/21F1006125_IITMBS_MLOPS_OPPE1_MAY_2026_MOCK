@@ -20,6 +20,8 @@ Add experiment tracking and a model registry to IRIS pipeline using MLflow — l
   * test_graded_assignment.py - Validates the functionality of functions present in graded_assigment.py
   * test_model_evaluation.py - Validates the mlflow best/latest model accuracy, precision, recall and f1 score
 * .github/workflows/ci.yaml - Contains the set of Github actions configuration
+* Configure GCP Cloud Storage as remote DVC dvc remote add -d storage gs://mlops-course-project-eada5958-ab21-4f76-b53-graded-assignments Use 'dvc remote list' for existing remote configuration
+* Create DVC pipeline dvc stage add -n train -d graded_assignment.py -d data/iris.csv -o artifacts/model.joblib -o artifacts/predictions.csv python graded_assignment.py
 * dvc.lock - Data model versioning result (of dvc repro command)
 * dvc.yaml - DVC configuration that includes training of the model, adding input dependencies
   * Removed model dependency from dvc
@@ -49,6 +51,35 @@ Add experiment tracking and a model registry to IRIS pipeline using MLflow — l
 * Create a firewall rule to allow mlflow instance (External IP address of VPC instance, port: 8100)
 * Get the external IP address of the VM instance and access the IP (Say 136.116.255.54:8100) -> MLFlow UI page displays
 
+# Setup
+## Git
+* Run 'git clone https://github.com/21f1006125-ds/21f1006125_MLOPS_WEEKLY_ASSIGNMENT.git'
+* Enter credentials (Username and Password)
+* Run 'cd 21f1006125_MLOPS_WEEKLY_ASSIGNMENT/'
+* Run 'git commit -m 'test commit'' 
+* Run 'git push'
+* Run 'git tag -a version -m "data with n records"
+* git config --global user.email "21f1006125@ds.study.iitm.ac.in"
+* git config --global user.name "21f1006125"
+
+## GCP
+* Run '
+
+## Python
+* Run 'python3 -m venv .env'
+* Run 'source .env/bin/activate'
+* Run 'pip install -r requirements.txt'
+
+## DVC
+* Run 'dvc init'
+* Run 'dvc remote list'
+* Run 'dvc remote add -d storage gs://mlops-course-project-eada5958-ab21-4f76-b53-graded-assignments'
+* Create DVC pipeline dvc stage add -n train -d graded_assignment.py -d data/iris.csv -o artifacts/model.joblib -o artifacts/predictions.csv python graded_assignment.py
+* Run 'dvc config core.autostage true'
+* Run 'dvc pull' to pull corresponding versioned data
+* Run 'dvc repro' to train model and build dvc data and model versions
+* Run 'dvc push' to push data and model version objects to Google cloud storage
+
 ## Commands
 * Activate Google Cloud Shell
 * Run 'cd mlops/week5/' (create a directory if it doesn't exist)
@@ -58,11 +89,13 @@ Add experiment tracking and a model registry to IRIS pipeline using MLflow — l
 * Run 'python3 -m venv .env'
 * Run 'source .env/bin/activate'
 * Run 'pip install -r requirements.txt'
+* Run 'dvc init'
+* Run 'dvc remote add -d storage gs://mlops-course-project-eada5958-ab21-4f76-b53-graded-assignments'
+* Run 'dvc remote list' for existing remote configuration
 * Run 'dvc pull' to pull corresponding versioned data
 * Run 'dvc repro' to train model and build dvc data and model versions
 * Run 'dvc push' to push data and model version objects to Google cloud storage
-* Run 'git commit' and 'git push' commands to keep the code at remote repository
-* Run 'git tag -a version -m "data with n records"
+
 
 ## Hyper Parameter Tuning Results
 ### version 1
