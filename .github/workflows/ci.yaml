@@ -10,7 +10,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  test:
+  continuous-integration:
     runs-on: ubuntu-latest
 
     steps:
