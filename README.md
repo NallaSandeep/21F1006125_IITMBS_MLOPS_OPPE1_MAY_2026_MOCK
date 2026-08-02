@@ -92,6 +92,22 @@ assertion.repository in [
 * Run 'dvc repro' to train model and build dvc data and model versions
 * Run 'dvc push' to push data and model version objects to Google cloud storage
 
+## Feast
+* Create feast store
+```feast init iris-feature-store```
+* Generate a feature file
+* Modify iris-feature-store/feature_repo configuration files
+```
+feature_definitions.py
+feature_store.yaml
+```
+* Run 
+```
+cd ./data/iris-feature-store/feature_repo
+feast apply
+```
+* Train model on historical feast feature store data
+
 ## Commands
 * Activate Google Cloud Shell
 * Run 'cd mlops/week5/' (create a directory if it doesn't exist)
