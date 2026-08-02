@@ -11,7 +11,7 @@ from graded_assignment import load_data, split_data
 import mlflow
 import mlflow.sklearn
 
-data = load_data("/data/iris_test.csv")
+data = load_data("./data/iris_test.csv")
 _, X_test, _, y_test = split_data(data)
 
 mlflow.set_tracking_uri("http://34.66.27.54:8100")

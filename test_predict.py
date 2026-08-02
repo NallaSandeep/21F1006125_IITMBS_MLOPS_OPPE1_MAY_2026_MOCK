@@ -11,7 +11,7 @@ model = mlflow.sklearn.load_model(
     model_uri="models:/IrisDecisionTree/latest"
 )
 
-test = pd.read_csv("/data/iris_test.csv")
+test = pd.read_csv("./data/iris_test.csv")
 
 X_test = test.drop("species", axis=1)
 y_test = test["species"]

@@ -6,7 +6,7 @@ from graded_assignment import (
 )
 
 
-DATA_PATH = "/data/iris_test.csv"
+DATA_PATH = "./data/iris_test.csv"
 
 
 def test_load_data():
