@@ -58,12 +58,24 @@ Add experiment tracking and a model registry to IRIS pipeline using MLflow — l
 * Run 'cd 21f1006125_MLOPS_WEEKLY_ASSIGNMENT/'
 * Run 'git commit -m 'test commit'' 
 * Run 'git push'
+* Run 'git config --global credential.helper store'
 * Run 'git tag -a version -m "data with n records"
 * git config --global user.email "21f1006125@ds.study.iitm.ac.in"
 * git config --global user.name "21f1006125"
 
 ## GCP
-* Run '
+* From Google console, configure workload identify federal pool (ie., github pool)
+* Create a github provider (https://iam.googleapis.com/projects/434534994925/locations/global/workloadIdentityPools/github-pool/providers/github)
+* Include repository matching condition
+```
+assertion.repository in [
+  '21f1006125-ds/21f1006125_MLOPS_WEEKLY_ASSIGNMENT',
+  '21f1006125-ds/21F1006125_IITMBS_MLOPS_OPPE1_MAY_2026_MOCK',
+ '21f1006125-ds/21F1006125_IITMBS_MLOPS_OPPE1_MAY_2026'
+]
+```
+* Go to Service Accounts screen -> Select the intended service account
+* Assign Workload Identify User role to principalSet://iam.googleapis.com/projects/434534994925/locations/global/workloadIdentityPools/github-pool/attribute.repository/21f1006125-ds/21f1006125_MLOPS_WEEKLY_ASSIGNMENT
 
 ## Python
 * Run 'python3 -m venv .env'
